@@ -64,7 +64,6 @@ class Products extends Component {
 
 
   render() {
-    console.log(this.props.match.params.page);
     this.page = typeof this.props.match.params.page === 'undefined' ? 1 : this.props.match.params.page;
 
     this.filteredProducts = this.state.dropdownSelected === "Pagal pavadinimą"
@@ -76,7 +75,7 @@ class Products extends Component {
       })
       : productsData.filter((product) => {
         return product
-          .price === parseInt(this.state.searchText);
+          .price === (this.state.searchText === '' ? product.price : parseInt(this.state.searchText));
       });
     return (
       <div className="products">

@@ -19,7 +19,6 @@ class Nav extends Component {
                 </li>
                 
             )
-            console.log("page " + page + "props.page" + this.props.page + " " + i);
         }
         return indents;
     }

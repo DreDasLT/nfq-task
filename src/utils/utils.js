@@ -1,15 +1,11 @@
 export let pagesData = [
     {
-        "name": "Home",
-        "path": "/"
+        "name": "Products",
+        "path": "/products"
     },
     {
         "name": "Orders",
         "path": "/orders"
-    },
-    {
-        "name": "Products",
-        "path": "/products"
     }
 ];
 
@@ -510,6 +506,259 @@ export let productsData = [
     }
     
     
+];
+
+export let ordersData = [
+    {
+        name: 'Abramas',
+        book: 'Vėžliai iki begalybės',
+        price: '12'
+    },
+    {
+        name: 'Liuba',
+        book: 'Juodvarnio žymė',
+        price: '3'
+    },
+    {
+        name: 'Malgožata',
+        book: 'Vandens skonis',
+        price: '5'
+    },
+    {
+        name: 'Ramona',
+        book: 'Vandens skonis',
+        price: '21'
+    },
+    {
+        name: 'Šilė',
+        book: 'Valhala',
+        price: '3'
+    },
+    {
+        name: 'Vaclova',
+        book: 'Geluonis',
+        price: '12'
+    },
+    {
+        name: 'Žilvinė',
+        book: 'Šulinys',
+        price: '16'
+    },
+    {
+        name: 'Alvydas',
+        book: 'Lara',
+        price: '2'
+    },
+    {
+        name: 'Artiomas ',
+        book: 'Rebeka',
+        price: '12'
+    },
+    {
+        name: 'Jaunė',
+        book: 'Rebeka',
+        price: '21'
+    },
+    {
+        name: 'Achilas ',
+        book: 'Sutikti eidą',
+        price: '26'
+    },
+    {
+        name: 'Džiulija',
+        book: 'Rebeka',
+        price: '12'
+    },
+    {
+        name: 'Deivilė',
+        book: 'Vandens skonis',
+        price: '17'
+    },
+    {
+        name: 'Damijonas ',
+        book: 'Užkerėtas dvaras',
+        price: '15'
+    },
+    {
+        name: 'Petras',
+        book: 'Izidė',
+        price: '5'
+    },
+    {
+        name: 'Glorija',
+        book: 'Žvaigždžių medžiaga',
+        price: '18'
+    },
+    {
+        name: 'Jeronima',
+        book: 'Vandens skonis',
+        price: '15'
+    },
+    {
+        name: 'Izidė',
+        book: 'Besielė',
+        price: '16'
+    },
+    {
+        name: 'Raimondas',
+        book: 'Rebeka',
+        price: '8'
+    },
+    {
+        name: 'Darius',
+        book: 'Besielė',
+        price: '4'
+    },
+    {
+        name: '',
+        book: 'Liucija',
+        price: '14'
+    },
+    {
+        name: 'Dovydas',
+        book: 'Akimirksniu',
+        price: '16'
+    },
+    {
+        name: 'Donatas',
+        book: 'Ema',
+        price: '2'
+    },
+    {
+        name: 'Sergijus',
+        book: 'Dviese',
+        price: '26'
+    },
+    {
+        name: 'Dovydas',
+        book: 'Šventovė',
+        price: '15'
+    },
+    {
+        name: 'Klaudas',
+        book: 'Vandens skonis',
+        price: '12'
+    },
+    {
+        name: 'Ramūnas',
+        book: 'Užkerėtas dvaras',
+        price: '11'
+    },
+    {
+        name: 'Ubaldas',
+        book: 'Žvaigždžių medžiaga',
+        price: '10'
+    },
+    {
+        name: 'Zenonas',
+        book: 'Legenda',
+        price: '18'
+    },
+    {
+        name: 'Boleslava',
+        book: 'Melų medis',
+        price: '10'
+    },
+    {
+        name: 'Gunda',
+        book: 'Legenda',
+        price: '5'
+    },
+    {
+        name: 'Rasuolė',
+        book: 'Nenuorama Dorė',
+        price: '8'
+    },
+    {
+        name: 'Vygintė',
+        book: 'Musių valdovas',
+        price: '12'
+    },
+    {
+        name: 'Rikardas',
+        book: 'Čipolino nuotykiai',
+        price: '8'
+    },
+    {
+        name: 'Kristina',
+        book: 'Užkerėtas dvaras',
+        price: '9'
+    },
+    {
+        name: 'Sirvydas',
+        book: 'Musių valdovas',
+        price: '10'
+    },
+    {
+        name: 'Žydrūnas',
+        book: 'Vandens skonis',
+        price: '23'
+    },
+    {
+        name: 'Rūtenis',
+        book: 'Melų medis',
+        price: '25'
+    },
+    {
+        name: 'Valdas',
+        book: 'Vandens skonis',
+        price: '11'
+    },
+    {
+        name: 'Rimantas',
+        book: 'Belgravija',
+        price: '7'
+    },
+    {
+        name: 'Žvaigždžius',
+        book: 'Žvaigždžių medžiaga',
+        price: '19'
+    },
+    {
+        name: 'Dagnė',
+        book: 'Čipolino nuotykiai',
+        price: '11'
+    },
+    {
+        name: 'Adelija',
+        book: 'Pelenė',
+        price: '9'
+    },
+    {
+        name: 'Augustė',
+        book: 'Karavalis',
+        price: '16'
+    },
+    {
+        name: 'Boleslova',
+        book: 'Benamis kačiukas',
+        price: '10'
+    },
+    {
+        name: 'Džiuljeta',
+        book: 'Sutikti eidą',
+        price: '8'
+    },
+    {
+        name: 'Goda',
+        book: 'Nenuorama Dorė',
+        price: '17'
+    },
+    {
+        name: 'Danuta',
+        book: 'Sutikti eidą',
+        price: '9'
+    },
+    {
+        name: 'Jadvyga',
+        book: 'Benamis kačiukas',
+        price: '20'
+    },
+    {
+        name: 'Joleta',
+        book: 'Nekviestas svečias',
+        price: '21'
+    },    
 ];
 
 export function countPages(items) {

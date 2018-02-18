@@ -30,10 +30,6 @@ class Navbar extends Component {
               <li class={this.props.path === pagesData[1].path ? "nav-item active" : "nav-item"}>
                 <Link to={pagesData[1].path} className="nav-link">{pagesData[1].name}</Link>
               </li>
-
-              <li class={this.props.path === pagesData[2].path ? "nav-item active" : "nav-item"}>
-                <Link to={pagesData[2].path} className="nav-link">{pagesData[2].name}</Link>
-              </li>
             </ul>
           </div>
         </nav>
