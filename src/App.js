@@ -4,18 +4,20 @@ import {
   Route
 } from 'react-router-dom';
 
-import home from './pages/home/home';
-import orders from './pages/orders/orders';
-import products from './pages/products/products';
+import Home from './pages/home/home';
+import Orders from './pages/orders/orders';
+import Products from './pages/products/products';
+
 
 class App extends Component {
   render() {
     return (
       <Router>
         <div>
-          <Route exact path ="/" component={home} />
-          <Route path="/orders" component={orders} />
-          <Route path="/products" component={products} />
+          <Route exact path="/" component={Home} />
+          <Route exact path="/orders" component={Orders} />
+          <Route exact path="/products" component={Products} />
+          <Route exact path="/products/:page" component={Products} />
         </div>
       </Router>
     );
