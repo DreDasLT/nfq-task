@@ -8,26 +8,26 @@ class Navbar extends Component {
   render() {
     return (
       <div>
-        <nav class="navbar navbar-expand-lg navbar-light bg-secondary">
-        <Link to={pagesData[0].path} className="navbar-brand text-warning">NFQ-TASK</Link>
+        <nav className="navbar navbar-expand-lg navbar-light bg-secondary">
+        <Link to={"/"} className="navbar-brand text-warning">NFQ-TASK</Link>
           <button
-            class="navbar-toggler"
+            className="navbar-toggler"
             type="button"
             data-toggle="collapse"
             data-target="#navbarSupportedContent"
             aria-controls="navbarSupportedContent"
             aria-expanded="false"
             aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
+            <span className="navbar-toggler-icon"></span>
           </button>
 
-          <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav mr-auto">
-              <li class={this.props.path === pagesData[0].path ? "nav-item active" : "nav-item"}>
+          <div className="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul className="navbar-nav mr-auto">
+              <li className={this.props.path === pagesData[0].path ? "nav-item active" : "nav-item"}>
                 <Link to={pagesData[0].path} className="nav-link">{pagesData[0].name}</Link>
               </li>
 
-              <li class={this.props.path === pagesData[1].path ? "nav-item active" : "nav-item"}>
+              <li className={this.props.path === pagesData[1].path ? "nav-item active" : "nav-item"}>
                 <Link to={pagesData[1].path} className="nav-link">{pagesData[1].name}</Link>
               </li>
             </ul>

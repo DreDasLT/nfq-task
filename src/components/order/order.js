@@ -7,7 +7,7 @@ class Order extends Component {
                 <th scope="row">{this.props.index}</th>
                 <td>{this.props.name}</td>
                 <td>{this.props.book}</td>
-                <td><span class="badge badge-success">{this.props.price}€</span></td>
+                <td><span className="badge badge-success">{this.props.price}€</span></td>
             </tr> 
         );
     }

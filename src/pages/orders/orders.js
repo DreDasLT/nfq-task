@@ -14,10 +14,6 @@ class Orders extends Component {
         this.state = {
             searchText: ''
         }
-
-        let itemsPerPage;
-        let page;
-        let filteredOrders;
     }
 
     handleChange(event) {
@@ -39,7 +35,7 @@ class Orders extends Component {
 
     renderOrderTable(orders, page) {
         return (
-                <table class="table table-light">
+                <table className="table table-light">
                     <thead>
                         <tr>
                             <th scope="col">#</th>
@@ -71,14 +67,14 @@ class Orders extends Component {
         return (
             <div>
                 <Navbar path={this.props.location.pathname}/>
-                <div class="py-5">
+                <div className="py-5">
                     <div className="container">
-                        <div class="row justify-content-md-center">
-                            <div class="mb-3 col-md-8">
-                                <div class="input-group">
+                        <div className="row justify-content-md-center">
+                            <div className="mb-3 col-md-8">
+                                <div className="input-group">
                                     <input
                                         type="text"
-                                        class="form-control"
+                                        className="form-control"
                                         aria-label="Užsakymų paieška"
                                         placeholder="Įveskite užsakovo vardą"
                                         value={this.state.searchText}
@@ -91,8 +87,8 @@ class Orders extends Component {
                     </div>
 
                     <div className="container">
-                        <div class="row justify-content-md-center">
-                            <div class="mb-3 col-md-8">
+                        <div className="row justify-content-md-center">
+                            <div className="mb-3 col-md-8">
 
                                 <Nav
                                     itemsPerPage={this.itemsPerPage}
@@ -106,7 +102,7 @@ class Orders extends Component {
                     {countPages(this.filteredOrders, this.itemsPerPage) !== 0
                         ? this.renderOrderTable(this.filteredOrders, this.page)
                         : <div>
-                            <div class="alert alert-danger" role="alert">
+                            <div className="alert alert-danger" role="alert">
                                 Užsakymų su tokiu užsakovo vardu nerasta.
                             </div>
                         </div>}

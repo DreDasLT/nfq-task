@@ -4,8 +4,8 @@ class Product extends Component {
 
     render() {
         return (
-            <div class="col-md-4">
-                <div class="card mb-4">
+            <div className="col-md-4">
+                <div className="card mb-4">
                     <img
                         className="card-img-top"
                         src={this.props.img}
@@ -14,13 +14,13 @@ class Product extends Component {
                         "max-height": "150px"
                     }}></img>
                     <div
-                        class="mt-4 col-md-12"
+                        className="mt-4 col-md-12"
                         style={{
                         "max-height": "270px"
                     }}>
 
                         <div
-                            class="col-md-12"
+                            className="col-md-12"
                             style={{
                             height: "150px",
                             "max-height": "150px",
@@ -29,16 +29,16 @@ class Product extends Component {
                             padding:0
                         }}>
 
-                            <div class="d-flex justify-content-between align-items-center">
+                            <div className="d-flex justify-content-between align-items-center">
                             <h4> {this.props.title}</h4>
                             <p> {this.props.genre}</p>
                         </div>
-                            <p class="card-text">{this.props.description}</p>
+                            <p className="card-text">{this.props.description}</p>
                         </div>
 
-                        <div class="d-flex justify-content-between align-items-center">
-                            <h4> <span class="badge badge-secondary">{this.props.author}</span></h4>
-                            <h2> <span class="badge badge-success">{this.props.price}€</span></h2>
+                        <div className="d-flex justify-content-between align-items-center">
+                            <h4> <span className="badge badge-secondary">{this.props.author}</span></h4>
+                            <h2> <span className="badge badge-success">{this.props.price}€</span></h2>
                         </div>
                     </div>
                 </div>
