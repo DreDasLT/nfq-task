@@ -1,11 +1,11 @@
 export let pagesData = [
     {
         "name": "Produktai",
-        "path": "/products"
+        "path": "/products/1"
     },
     {
         "name": "Užsakymai",
-        "path": "/orders"
+        "path": "/orders/1"
     }
 ];
 

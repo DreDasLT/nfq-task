@@ -149,7 +149,8 @@ class Products extends Component {
                     itemsPerPage={this.itemsPerPage}
                     page={this.page}
                     data={this.filteredProducts}
-                    link="/products/"></Nav>
+                    link="/products/">
+                  </Nav>
                 </div>
               </div>
             </div>
