@@ -31,7 +31,7 @@ class Products extends Component {
       .handleClick
       .bind(this);
 
-
+      let itemsPerPage;
       let page;
       let filteredProducts;
   }
@@ -51,19 +51,39 @@ class Products extends Component {
   };
 
   renderProducts(products, page) {
-    let itemsFrom = page === 1 ? 0 : (page-1)*6;
-    return products.slice(itemsFrom, itemsFrom+6).map(product => this.renderProduct(product));
+    let itemsFrom = page === 1 ? 0 : (page-1)*this.itemsPerPage;
+    return products.slice(itemsFrom, itemsFrom+this.itemsPerPage).map(product => this.renderProduct(product));
   };
 
   handleChange(event) {
     var value;
-    if(this.state.dropdownSelected !== "Pagal pavadinimą") value = event.target.value > -1 ? event.target.value : 0;
+    if(this.state.dropdownSelected === "Pagal kainą") value = event.target.value > -1 ? event.target.value : 0;
     else value = event.target.value;
     this.setState({searchText: value });
   };
 
+  /*handleFilter() {
+    if(this.state.dropdownSelected === "Pagal pavadinimą")
+    {
+      this.filteredProducts = productsData.filter((product) => {
+        return product.title.toLowerCase().indexOf(this.state.searchText.toLowerCase()) !== -1;
+      }
+    }
+    else if(this.state.dropdownSelected === "Pagal kainą") 
+    {
+      this.filteredProducts = productsData.filter((product) => 
+      {
+        return product
+        .price === (this.state.searchText === '' ? product.price : parseInt(this.state.searchText));
+      }
+    }  
+  }*/
+
+
+
 
   render() {
+    this.itemsPerPage = 6;
     this.page = typeof this.props.match.params.page === 'undefined' ? 1 : this.props.match.params.page;
 
     this.filteredProducts = this.state.dropdownSelected === "Pagal pavadinimą"
@@ -77,6 +97,10 @@ class Products extends Component {
         return product
           .price === (this.state.searchText === '' ? product.price : parseInt(this.state.searchText));
       });
+
+      
+        
+
     return (
       <div className="products">
         <div>
@@ -121,7 +145,7 @@ class Products extends Component {
               <div class="row justify-content-md-center">
                 <div class="mb-3 col-md-8">
                   
-                  <Nav page={this.page} products={this.filteredProducts} link="/products/"> </Nav>
+                  <Nav itemsPerPage={this.itemsPerPage} page={this.page} data={this.filteredProducts} link="/products/"> </Nav>
                 </div>
               </div>
             </div>
@@ -129,6 +153,7 @@ class Products extends Component {
             <div className="container">
               <div class="row">
                 {this.renderProducts(this.filteredProducts, this.page)}
+
               </div>
             </div>
           </div>

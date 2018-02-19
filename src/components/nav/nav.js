@@ -37,9 +37,9 @@ class Nav extends Component {
                                 <span class="sr-only">Previous</span>
                             </Link>
                         </li>
-                        {this.renderPages(countPages(this.props.products.length), page)}
-                        <li class={nextPage === countPages(this.props.products.length)+1 ? "page-item disabled" : "page-item"}>
-                        <Link to={this.props.page !== countPages(this.props.products) ? this.props.link + nextPage : this.props.link + this.props.page} className="page-link">
+                        {this.renderPages(countPages(this.props.data.length, this.props.itemsPerPage), page)}
+                        <li class={nextPage === countPages(this.props.data.length, this.props.itemsPerPage)+1 ? "page-item disabled" : "page-item"}>
+                        <Link to={this.props.page !== countPages(this.props.data, this.props.itemsPerPage) ? this.props.link + nextPage : this.props.link + this.props.page} className="page-link">
                                 <span aria-hidden="true">&raquo;</span>
                                 <span class="sr-only">Next</span>
                         </Link>

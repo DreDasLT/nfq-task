@@ -1,11 +1,14 @@
-import React, { Component } from 'react';
+import React, {Component} from 'react';
 
 class Order extends Component {
     render() {
         return (
-            <div>
-                
-            </div>
+            <tr>
+                <th scope="row">{this.props.index}</th>
+                <td>{this.props.name}</td>
+                <td>{this.props.book}</td>
+                <td><span class="badge badge-success">{this.props.price}€</span></td>
+            </tr> 
         );
     }
 }

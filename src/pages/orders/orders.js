@@ -1,6 +1,11 @@
 import React, {Component} from 'react';
 import Navbar from './../layout/navbar/navbar';
 
+import Nav from './../../components/nav/nav';
+
+import Order from './../../components/order/order';
+import {ordersData, countPages} from './../../utils/utils';
+
 class Orders extends Component {
 
     constructor(props) {
@@ -9,13 +14,41 @@ class Orders extends Component {
         this.state = {
             searchText: ''
         }
+
+        let itemsPerPage;
+        let page;
+        let filteredOrders;
     }
 
     handleChange(event) {
         this.setState({searchText: event.target.value});
     };
 
+    renderOrder(index, order) {
+        return <Order index={index} name={order.name} book={order.book} price={order.price}/>;
+    };
+
+    renderOrders(orders, page) {
+        let itemsFrom = page === 1
+            ? 0
+            : (page - 1) * this.itemsPerPage;
+        return orders
+            .slice(itemsFrom, itemsFrom + this.itemsPerPage)
+            .map((order, index) => this.renderOrder(index+1, order));
+    };
+
     render() {
+        this.itemsPerPage = 20;
+        this.page = typeof this.props.match.params.page === 'undefined'
+            ? 1
+            : this.props.match.params.page;
+
+        this.filteredOrders = ordersData.filter((order) => {
+            return order
+                .name
+                .toLowerCase()
+                .indexOf(this.state.searchText.toLowerCase()) !== -1;
+        });
         return (
             <div>
                 <Navbar path={this.props.location.pathname}/>
@@ -36,6 +69,32 @@ class Orders extends Component {
                                 </div>
                             </div>
                         </div>
+                    </div>
+
+                    <div className="container">
+                        <div class="row justify-content-md-center">
+                            <div class="mb-3 col-md-8">
+
+                                <Nav itemsPerPage={this.itemsPerPage} page={this.page} data={this.filteredOrders} link="/orders/"></Nav>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div className="container">
+                        <table class="table table-light">
+                            <thead>
+                                <tr>
+                                    <th scope="col">#</th>
+                                    <th scope="col">Vardas</th>
+                                    <th scope="col">Knyga</th>
+                                    <th scope="col">Suma</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {this.renderOrders(this.filteredOrders, this.page)}
+
+                            </tbody>
+                        </table>
                     </div>
                 </div>
             </div>

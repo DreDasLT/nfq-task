@@ -610,8 +610,8 @@ export let ordersData = [
         price: '4'
     },
     {
-        name: '',
-        book: 'Liucija',
+        name: 'Liucija',
+        book: 'Vandens skonis',
         price: '14'
     },
     {
@@ -761,15 +761,15 @@ export let ordersData = [
     },    
 ];
 
-export function countPages(items) {
+export function countPages(items, divider) {
     let count = 0;
-    if(items % 6 === 0) {
-        count = items / 6;
+    if(items % divider === 0) {
+        count = items / divider;
     } else {
-        if(items < 6) {
-            count = Math.round((items / 6));
+        if(items < divider) {
+            count = 1;
         } else {
-            count = Math.round((items / 6)) + 1;
+            count = Math.ceil((items / divider));
         }
     }
     return count;
