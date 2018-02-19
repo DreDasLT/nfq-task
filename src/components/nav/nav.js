@@ -23,31 +23,44 @@ class Nav extends Component {
         return indents;
     }
 
-    render() {
-        var page = parseInt(this.props.page);
+    renderNav(page) {
         var previousPage = page - 1;
         var nextPage = page + 1;
         return (
-            <div>
-                <nav aria-label="...">
+            <nav aria-label="...">
                     <ul class="pagination justify-content-center">
                         <li class={previousPage === 0 ? "page-item disabled" : "page-item"}>
-                            <Link to={this.props.page !== 1 ? this.props.link + previousPage : this.props.link + this.props.page} className="page-link">
+                            <Link to={page !== 1 ? this.props.link + previousPage : this.props.link + page} className="page-link">
                                 <span aria-hidden="true">&laquo;</span>
                                 <span class="sr-only">Previous</span>
                             </Link>
                         </li>
                         {this.renderPages(countPages(this.props.data.length, this.props.itemsPerPage), page)}
                         <li class={nextPage === countPages(this.props.data.length, this.props.itemsPerPage)+1 ? "page-item disabled" : "page-item"}>
-                        <Link to={this.props.page !== countPages(this.props.data, this.props.itemsPerPage) ? this.props.link + nextPage : this.props.link + this.props.page} className="page-link">
+                        <Link to={page !== countPages(this.props.data, this.props.itemsPerPage) ? this.props.link + nextPage : this.props.link + page} className="page-link">
                                 <span aria-hidden="true">&raquo;</span>
                                 <span class="sr-only">Next</span>
                         </Link>
                         </li>
                     </ul>
                 </nav>
-            </div>
         );
+    }
+
+    render() {
+        var page = parseInt(this.props.page);
+        if(countPages(this.props.data.length, this.props.itemsPerPage) !== 0) {
+            return (
+                <div>
+                    {this.renderNav(page)}
+                </div>
+            );
+        } else {
+            return (
+                <div>
+                </div>
+            );
+        }
     }
 }
 

@@ -1,16 +1,11 @@
-// Sudelioti i atskirus componentus
-// Per paramus paduoti puslapi ir praeitame state naudota ieskojimo fragmenta
-// pagination rodykles sutvarkyti, kad eitu i sekanti ir kad butu disablinta rodykle jeigu neber kur eit
-// jei esi tame puslapyje tai skaicius turi but disablintas
-
+// Sudelioti i atskirus componentus Per paramus paduoti puslapi ir praeitame
+// state naudota ieskojimo fragmenta pagination rodykles sutvarkyti, kad eitu i
+// sekanti ir kad butu disablinta rodykle jeigu neber kur eit jei esi tame
+// puslapyje tai skaicius turi but disablintas
 
 import React, {Component} from 'react';
 
-import {
-  BrowserRouter as Router,
-  Route,
-  Link
-} from 'react-router-dom';
+import {BrowserRouter as Router, Route, Link} from 'react-router-dom';
 
 import Navbar from './../layout/navbar/navbar';
 import Nav from './../../components/nav/nav';
@@ -31,9 +26,9 @@ class Products extends Component {
       .handleClick
       .bind(this);
 
-      let itemsPerPage;
-      let page;
-      let filteredProducts;
+    let itemsPerPage;
+    let page;
+    let filteredProducts;
   }
 
   handleClick = (value) => (e) => {
@@ -51,15 +46,23 @@ class Products extends Component {
   };
 
   renderProducts(products, page) {
-    let itemsFrom = page === 1 ? 0 : (page-1)*this.itemsPerPage;
-    return products.slice(itemsFrom, itemsFrom+this.itemsPerPage).map(product => this.renderProduct(product));
+    let itemsFrom = page === 1
+      ? 0
+      : (page - 1) * this.itemsPerPage;
+    return products
+      .slice(itemsFrom, itemsFrom + this.itemsPerPage)
+      .map(product => this.renderProduct(product));
   };
 
   handleChange(event) {
     var value;
-    if(this.state.dropdownSelected === "Pagal kainą") value = event.target.value > -1 ? event.target.value : 0;
-    else value = event.target.value;
-    this.setState({searchText: value });
+    if (this.state.dropdownSelected === "Pagal kainą") 
+      value = event.target.value > -1
+        ? event.target.value
+        : 0;
+    else 
+      value = event.target.value;
+    this.setState({searchText: value});
   };
 
   /*handleFilter() {
@@ -69,22 +72,21 @@ class Products extends Component {
         return product.title.toLowerCase().indexOf(this.state.searchText.toLowerCase()) !== -1;
       }
     }
-    else if(this.state.dropdownSelected === "Pagal kainą") 
+    else if(this.state.dropdownSelected === "Pagal kainą")
     {
-      this.filteredProducts = productsData.filter((product) => 
+      this.filteredProducts = productsData.filter((product) =>
       {
         return product
         .price === (this.state.searchText === '' ? product.price : parseInt(this.state.searchText));
       }
-    }  
+    }
   }*/
-
-
-
 
   render() {
     this.itemsPerPage = 6;
-    this.page = typeof this.props.match.params.page === 'undefined' ? 1 : this.props.match.params.page;
+    this.page = typeof this.props.match.params.page === 'undefined'
+      ? 1
+      : this.props.match.params.page;
 
     this.filteredProducts = this.state.dropdownSelected === "Pagal pavadinimą"
       ? productsData.filter((product) => {
@@ -94,12 +96,10 @@ class Products extends Component {
           .indexOf(this.state.searchText.toLowerCase()) !== -1;
       })
       : productsData.filter((product) => {
-        return product
-          .price === (this.state.searchText === '' ? product.price : parseInt(this.state.searchText));
+        return product.price === (this.state.searchText === ''
+          ? product.price
+          : parseInt(this.state.searchText));
       });
-
-      
-        
 
     return (
       <div className="products">
@@ -144,15 +144,28 @@ class Products extends Component {
             <div className="container">
               <div class="row justify-content-md-center">
                 <div class="mb-3 col-md-8">
-                  
-                  <Nav itemsPerPage={this.itemsPerPage} page={this.page} data={this.filteredProducts} link="/products/"> </Nav>
+
+                  <Nav
+                    itemsPerPage={this.itemsPerPage}
+                    page={this.page}
+                    data={this.filteredProducts}
+                    link="/products/"></Nav>
                 </div>
               </div>
             </div>
 
             <div className="container">
               <div class="row">
-                {this.renderProducts(this.filteredProducts, this.page)}
+                {countPages(this.filteredProducts, this.page) !== 0
+                  ? this.renderProducts(this.filteredProducts, this.page)
+                  : <div class="col-md-12">
+
+                    <div class="alert alert-danger" role="alert">
+                      Prekių su {this.state.dropdownSelected === "Pagal pavadinimą"
+                        ? "tokiu pavadinimu"
+                        : "tokia kaina"} nerasta.
+                    </div>
+                  </div>}
 
               </div>
             </div>

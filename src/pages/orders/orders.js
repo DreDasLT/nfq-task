@@ -34,8 +34,27 @@ class Orders extends Component {
             : (page - 1) * this.itemsPerPage;
         return orders
             .slice(itemsFrom, itemsFrom + this.itemsPerPage)
-            .map((order, index) => this.renderOrder(index+1, order));
+            .map((order, index) => this.renderOrder(index + 1, order));
     };
+
+    renderOrderTable(orders, page) {
+        return (
+                <table class="table table-light">
+                    <thead>
+                        <tr>
+                            <th scope="col">#</th>
+                            <th scope="col">Vardas</th>
+                            <th scope="col">Knyga</th>
+                            <th scope="col">Suma</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {this.renderOrders(this.filteredOrders, this.page)}
+
+                    </tbody>
+                </table>
+        );
+    }
 
     render() {
         this.itemsPerPage = 20;
@@ -75,27 +94,23 @@ class Orders extends Component {
                         <div class="row justify-content-md-center">
                             <div class="mb-3 col-md-8">
 
-                                <Nav itemsPerPage={this.itemsPerPage} page={this.page} data={this.filteredOrders} link="/orders/"></Nav>
+                                <Nav
+                                    itemsPerPage={this.itemsPerPage}
+                                    page={this.page}
+                                    data={this.filteredOrders}
+                                    link="/orders/"></Nav>
                             </div>
                         </div>
                     </div>
-
                     <div className="container">
-                        <table class="table table-light">
-                            <thead>
-                                <tr>
-                                    <th scope="col">#</th>
-                                    <th scope="col">Vardas</th>
-                                    <th scope="col">Knyga</th>
-                                    <th scope="col">Suma</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                {this.renderOrders(this.filteredOrders, this.page)}
-
-                            </tbody>
-                        </table>
-                    </div>
+                    {countPages(this.filteredOrders, this.itemsPerPage) !== 0
+                        ? this.renderOrderTable(this.filteredOrders, this.page)
+                        : <div>
+                            <div class="alert alert-danger" role="alert">
+                                Užsakymų su tokiu užsakovo vardu nerasta.
+                            </div>
+                        </div>}
+                    </div>    
                 </div>
             </div>
         );
